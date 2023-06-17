@@ -1,4 +1,6 @@
 source "https://rubygems.org"
 
-gem "roda"
 gem "puma"
+gem "roda"
+gem "sequel"
+gem "sqlite3"

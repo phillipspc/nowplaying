@@ -7,6 +7,8 @@ GEM
     rack (3.0.8)
     roda (3.69.0)
       rack
+    sequel (5.69.0)
+    sqlite3 (1.6.3-arm64-darwin)
 
 PLATFORMS
   arm64-darwin-22
@@ -14,6 +16,8 @@ PLATFORMS
 DEPENDENCIES
   puma
   roda
+  sequel
+  sqlite3
 
 BUNDLED WITH
    2.4.14
