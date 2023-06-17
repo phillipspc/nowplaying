@@ -1,2 +1,11 @@
-require './app'
-run App.freeze.app
+require "roda"
+
+class App < Roda
+  route do |r|
+    r.get "hello" do
+      "hello!"
+    end
+  end
+end
+
+run App
