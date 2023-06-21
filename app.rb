@@ -1,6 +1,6 @@
 require "json"
 require "roda"
-require_relative "user"
+require_relative "handle_slash_command_request_job"
 
 class App < Roda
   route do |r|
@@ -12,7 +12,7 @@ class App < Roda
       slack_id = "#{r['user_id']}-#{r['team_id']}"
       response_url = r['response_url']
 
-      User.handle_nowplaying(slack_id:, response_url:)
+      HandleSlashCommandRequestJob.perform_async(slack_id:, response_url:)
 
       response['Content-Type'] = 'application/json'
       response.status = 200

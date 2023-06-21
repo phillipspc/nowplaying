@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    concurrent-ruby (1.2.2)
     ffi (1.15.5)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -18,6 +19,8 @@ GEM
       rack
     sequel (5.69.0)
     sqlite3 (1.6.3-arm64-darwin)
+    sucker_punch (3.1.0)
+      concurrent-ruby (~> 1.0)
 
 PLATFORMS
   arm64-darwin-22
@@ -28,6 +31,7 @@ DEPENDENCIES
   roda
   sequel
   sqlite3
+  sucker_punch
 
 BUNDLED WITH
    2.4.14
