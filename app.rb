@@ -1,6 +1,7 @@
 require "dotenv"
 require "json"
 require "roda"
+require_relative "setupdb"
 require_relative "handle_slash_command_request_job"
 
 Dotenv.load
