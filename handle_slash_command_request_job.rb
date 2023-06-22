@@ -9,7 +9,8 @@ class HandleSlashCommandRequestJob
     user = User.find_or_create_by(slack_id:)
 
     if user.spotify_token
-      # use the token
+      access_token = Spotify.fetch_access_token_from(refresh_token: user.spotify_token)
+      Spotify.show_now_playing(access_token:, response_url:)
     else
       Spotify.send_authorization_action(slack_id:, response_url:)
     end

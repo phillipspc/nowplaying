@@ -26,13 +26,10 @@ class App < Roda
       slack_id = r['state']
       code = r['code']
 
-      refresh_token = Spotify.fetch_refresh_token_from_code(code)
-      puts refresh_token
-      puts slack_id
+      refresh_token = Spotify.fetch_refresh_token_from(code:)
 
       user = User.first(slack_id:)
       user.spotify_token = refresh_token
-      user.refreshed_at = Time.now
       user.save
 
       response['Content-Type'] = 'application/json'

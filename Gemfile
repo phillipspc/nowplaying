@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "dotenv"
+gem "httparty"
 gem "puma"
 gem "rerun"
 gem "roda"

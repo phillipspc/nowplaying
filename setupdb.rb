@@ -9,5 +9,4 @@ DB.create_table? :users do
   column :slack_id, String, { unique: true }
   column :spotify_token, String
   column :created_at, DateTime
-  column :refreshed_at, DateTime
 end
