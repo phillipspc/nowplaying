@@ -23,7 +23,21 @@ class App < Roda
     end
 
     r.get "spotify-callback" do
-      "Hey there!"
+      slack_id = r['state']
+      code = r['code']
+
+      refresh_token = Spotify.fetch_refresh_token_from_code(code)
+      puts refresh_token
+      puts slack_id
+
+      user = User.first(slack_id:)
+      user.spotify_token = refresh_token
+      user.refreshed_at = Time.now
+      user.save
+
+      response['Content-Type'] = 'application/json'
+      response.status = 200
+      JSON.generate({ message: "Authorization successful. You are now ready to use the /nowplaying command!" })
     end
   end
 end

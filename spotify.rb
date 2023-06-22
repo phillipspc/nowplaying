@@ -26,4 +26,17 @@ class Spotify
       }]
     })
   end
+
+  def self.fetch_refresh_token_from_code(code)
+    uri = URI("https://accounts.spotify.com/api/token")
+    params = {
+      grant_type: 'authorization_code',
+      code: code,
+      redirect_uri: ENV['SPOTIFY_REDIRECT_URI'],
+      client_id: ENV['SPOTIFY_CLIENT_ID'],
+      client_secret: ENV['SPOTIFY_CLIENT_SECRET']
+    }
+    response = Net::HTTP::post_form(uri, params)
+    JSON.parse(response.body)['refresh_token']
+  end
 end
