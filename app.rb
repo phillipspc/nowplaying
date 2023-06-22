@@ -1,6 +1,9 @@
+require "dotenv"
 require "json"
 require "roda"
 require_relative "handle_slash_command_request_job"
+
+Dotenv.load
 
 class App < Roda
   route do |r|
@@ -17,6 +20,10 @@ class App < Roda
       response['Content-Type'] = 'application/json'
       response.status = 200
       { response_type: "in_channel", text: "" }.to_json
+    end
+
+    r.get "spotify-callback" do
+      "Hey there!"
     end
   end
 end

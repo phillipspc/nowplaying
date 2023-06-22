@@ -3,8 +3,7 @@ require "sequel"
 Sequel::Model.db = Sequel.sqlite('./nowplaying.db')
 
 class User < Sequel::Model
-  def self.handle_nowplaying(slack_id:, response_url:)
-    puts slack_id
-    puts response_url
+  def self.find_or_create_by(slack_id:)
+    User.first(slack_id:) || User.create(slack_id:, created_at: Time.now)
   end
 end

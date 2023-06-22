@@ -1,8 +1,10 @@
 source "https://rubygems.org"
 
+gem "dotenv"
 gem "puma"
 gem "rerun"
 gem "roda"
 gem "sequel"
+gem "slack-notifier"
 gem "sqlite3"
 gem "sucker_punch"
