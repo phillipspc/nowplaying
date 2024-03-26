@@ -7,6 +7,8 @@ require_relative "handle_slash_command_request_job"
 Dotenv.load
 
 class App < Roda
+  plugin :common_logger
+
   route do |r|
     r.root do
       "Hello!"

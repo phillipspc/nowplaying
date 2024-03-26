@@ -67,7 +67,8 @@ class Spotify
     end
 
     data = JSON.parse(response.body)
-    puts data
+    logger = Logger.new
+    logger.info(data)
 
     if data.keys.empty?
       notifier.post(text: "It doesn't look like you're listening to anything.", response_type: "in_channel")
