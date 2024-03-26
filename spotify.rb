@@ -67,7 +67,7 @@ class Spotify
     end
 
     data = JSON.parse(response.body)
-    logger = Logger.new
+    logger = Logger.new($stdout)
     logger.info(data)
 
     if data.keys.empty?
